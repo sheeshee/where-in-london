@@ -1,5 +1,8 @@
 import { Component } from 'react'
-import { Map, TileLayer, Marker, Popup } from 'react-leaflet'
+import { Map, TileLayer, GeoJSON } from 'react-leaflet'
+// downloaded data from here:
+// https://skgrange.github.io/data.html
+import data from './data/london_boroughs.json'
 
 class Mapper extends Component {
     constructor(props){
@@ -18,6 +21,7 @@ class Mapper extends Component {
             attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
+            <GeoJSON data={data} />
             </Map>
         )
     }
