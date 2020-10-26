@@ -40,3 +40,10 @@
 .leaflet-container{
   height: 100vh
 }
+
+.control {
+  position: fixed;
+  left: 10px;
+  bottom: 20px;
+  z-index: 400 /* Minimum of 400 to ensure it lies above the map */
+}

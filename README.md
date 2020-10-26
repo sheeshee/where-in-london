@@ -1,3 +1,15 @@
+# Notes
+## Eventual data sources
+
+* Crime data
+* House prices
+* Commute time
+
+## Features
+
+* Search location
+* Choropleth Map of boroughs
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
