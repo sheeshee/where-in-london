@@ -1,0 +1,42 @@
+.colorbar-segment {
+    position: relative;
+    float: left;
+    width: 3px;
+    height: 10px;
+}
+
+.colorbar-container {
+    background-color: white;
+    padding: 30px 20px 20px;
+    border: 1px black solid;
+}
+
+.colorbar-labels {
+    position: relative;
+}
+
+.colorbar-labels .minimum {
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+}
+
+.colorbar-labels .maximum {
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+}
+
+.colorbar-labels .unit {
+    position: absolute;
+    left: 115px;
+    bottom: 0px;
+}
+
+.control {
+    position: fixed;
+    left: 10px;
+    bottom: 20px;
+    z-index: 400 /* Minimum of 400 to ensure it lies above the map */
+  }
+  
