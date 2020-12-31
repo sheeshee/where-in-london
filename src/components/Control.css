@@ -37,6 +37,5 @@
     position: fixed;
     left: 10px;
     bottom: 20px;
-    z-index: 400 /* Minimum of 400 to ensure it lies above the map */
+    z-index: 401 /* Minimum of 401 to ensure it lies above the map */
   }
-  

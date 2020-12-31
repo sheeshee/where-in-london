@@ -69,12 +69,13 @@ class Mapper extends Component {
                 attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
+            { this.props.data ?
             <GeoJSON
                 ref={this.geojsonRef}
                 data={this.props.data}
                 style={this.style}
                 onEachFeature={this.onEachFeature.bind(this)}
-            />
+            /> : null}
             </Map>
         )
     }

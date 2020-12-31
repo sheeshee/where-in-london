@@ -7,11 +7,6 @@ import ColorGradient from './components/ColorGradient'
 
 // downloaded data from here:
 // https://skgrange.github.io/data.html
-import data from './data/london_boroughs.json'
-
-var areas = data.features.map(f => parseFloat(f.properties.area_hectares));
-
-
 
 class App extends Component {
   constructor(props){
@@ -21,7 +16,21 @@ class App extends Component {
     this.state = {
       selectedBoroughName: "",
       selectedBoroughSize: 0,
+      data: null,
+      areas: null
     }
+    console.log('App Constructed')
+  }
+
+  componentDidMount() {
+    fetch(process.env.PUBLIC_URL + '/data/london_boroughs.json')
+    .then( response => response.json() )
+    .then( data => {
+      console.log('Loaded!');
+      var areas = data.features.map(f => parseFloat(f.properties.area_hectares));
+      this.setState({data: data, areas: areas})
+    })
+    .catch( error => console.log('Failed to load data :(') )
   }
 
   updateBoroughName = ( boroughName ) => {
@@ -37,20 +46,26 @@ class App extends Component {
   }
 
  render(){
-  var gradient = new ColorGradient(areas)
+   if(this.state.data){
+    var gradient = new ColorGradient(this.state.areas)
+    var controlPanel =
+      <ControlPanel
+        boroughName={this.state.selectedBoroughName}
+        boroughSize={this.state.selectedBoroughSize}
+        gradient={gradient}
+      />
+
+   }
   return (
     <div>
-    <Mapper
-      gradient={gradient}
-      data={data}
-      updateBoroughName={this.updateBoroughName}
-      updateBoroughSize={this.updateBoroughSize}
-    />
-    <ControlPanel
-      boroughName={this.state.selectedBoroughName}
-      boroughSize={this.state.selectedBoroughSize}
-      gradient={gradient}
-    />
+      {controlPanel}
+      <Mapper
+        gradient={gradient}
+        data={this.state.data}
+        updateBoroughName={this.updateBoroughName}
+        updateBoroughSize={this.updateBoroughSize}
+      />
+
     </div>
    )
  }
