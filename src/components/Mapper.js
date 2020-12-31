@@ -39,12 +39,15 @@ class Mapper extends Component {
 
     highlightFeature = (e) => {
         var layer = e.target;
+        this.props.updateBoroughName(layer.feature.properties.name)
+        this.props.updateBoroughSize(layer.feature.properties.area_hectares)
         layer.setStyle({
             fillOpacity: 1
         })
     }
 
     resetHighlight = (e) => {
+        this.props.updateBoroughName("")
         this.geojsonRef.current.leafletElement.resetStyle(e.target)
     }
 

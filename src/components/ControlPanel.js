@@ -29,6 +29,9 @@ class ControlPanel extends Component {
     render(){
         return(
             <div className="control">
+                <div>
+                    {this.props.boroughName ? this.props.boroughName + ": " + this.props.boroughSize + " hectares": "" }
+                </div>
                 {/* <button className="btn btn-primary">Show Map</button> */}
                 <ColorBar gradient={this.props.gradient}/>
             </div>
