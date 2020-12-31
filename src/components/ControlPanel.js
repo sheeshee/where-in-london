@@ -8,7 +8,7 @@ class ColorBar extends Component {
     render(){
         const items = []
         for (var i = 0; i < 100; i++){
-            items.push(<div className="colorbar-segment" style={{backgroundColor: this.props.gradient.colorFromRank(i)}}></div>)
+            items.push(<div key={i} className="colorbar-segment" style={{backgroundColor: this.props.gradient.colorFromRank(i)}}></div>)
         }
         return(
             <div className="colorbar-container">
