@@ -18,7 +18,7 @@ class Mapper extends Component {
     }
 
     style = feature => {
-        var color = this.props.gradient.colorFromValue(feature.properties.area_hectares)
+        var color = this.props.gradient.colorFromValue(feature.properties.latest_average_price)
         return {
             fillColor: color,
             weight: 2,
@@ -40,7 +40,7 @@ class Mapper extends Component {
     highlightFeature = (e) => {
         var layer = e.target;
         this.props.updateBoroughName(layer.feature.properties.name)
-        this.props.updateBoroughSize(layer.feature.properties.area_hectares)
+        this.props.updateBoroughSize(layer.feature.properties.latest_average_price)
         layer.setStyle({
             fillOpacity: 1
         })

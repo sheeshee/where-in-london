@@ -27,7 +27,7 @@ class App extends Component {
     .then( response => response.json() )
     .then( data => {
       console.log('Loaded boroughs!');
-      var areas = data.features.map(f => parseFloat(f.properties.area_hectares));
+      var areas = data.features.map(f => parseFloat(f.properties.latest_average_price));
       this.setState({data: data, areas: areas})
     })
     .catch(error => console.error('Failed to load data:\n', error))
