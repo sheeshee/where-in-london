@@ -26,11 +26,11 @@ class App extends Component {
     fetch(process.env.PUBLIC_URL + '/data/london_boroughs.json')
     .then( response => response.json() )
     .then( data => {
-      console.log('Loaded!');
+      console.log('Loaded boroughs!');
       var areas = data.features.map(f => parseFloat(f.properties.area_hectares));
       this.setState({data: data, areas: areas})
     })
-    .catch( error => console.log('Failed to load data :(') )
+    .catch(error => console.error('Failed to load data:\n', error))
   }
 
   updateBoroughName = ( boroughName ) => {

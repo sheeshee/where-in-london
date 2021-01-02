@@ -2,7 +2,7 @@
 ## Eventual data sources
 
 * Crime data
-* House prices
+* House prices: https://data.london.gov.uk/dataset/uk-house-price-index
 * Commute time
 
 ## Features

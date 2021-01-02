@@ -1,39 +1,36 @@
-import './Control.css'
-import { Component } from 'react'
+import './Control.css';
+import { Component } from 'react';
+import Plot from './Plot';
 
-
-
-class ColorBar extends Component {
-
-    render(){
-        const items = []
-        for (var i = 0; i < 100; i++){
-            items.push(<div key={i} className="colorbar-segment" style={{backgroundColor: this.props.gradient.colorFromRank(i)}}></div>)
-        }
-        return(
-            <div className="colorbar-container">
-                <div className="colorbar-labels">
-                    <div className="minimum">{Math.round(this.props.gradient.minValue)}</div>
-                    <div className="maximum">{Math.round(this.props.gradient.maxValue)}</div>
-                    <div className="unit">hectares</div>
-                </div>
-                <div >
-                    {items}
-                </div>
-            </div>
-        )
-    }
+function cleanKey(boroughName){
+    return boroughName.replace(' and ', ' & ')
 }
 
 class ControlPanel extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            data: null,
+        }
+    }
+
+    componentDidMount(){
+        fetch(process.env.PUBLIC_URL + '/data/average-house-prices.json')
+            .then( response => response.json() )
+            .then( data => {
+                this.setState({data: data});
+                console.log("Loaded price data!");
+            })
+            .catch( error => console.error('Could not load data:\n', error))
+    }
+
     render(){
         return(
-            <div className="control">
+            <div className="control-box">
+                <Plot data={this.state.data} boroughKey={cleanKey(this.props.boroughName)}/>
                 <div>
-                    {this.props.boroughName ? this.props.boroughName + ": " + this.props.boroughSize + " hectares": "" }
+                    {this.props.boroughName ? this.props.boroughName : "Hover over a borough to display its graph." }
                 </div>
-                {/* <button className="btn btn-primary">Show Map</button> */}
-                <ColorBar gradient={this.props.gradient}/>
             </div>
         )
     }

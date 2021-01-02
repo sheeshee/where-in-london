@@ -1,41 +1,11 @@
-.colorbar-segment {
-    position: relative;
-    float: left;
-    width: 3px;
-    height: 10px;
-}
 
-.colorbar-container {
-    background-color: white;
-    padding: 30px 20px 20px;
-    border: 1px black solid;
-}
-
-.colorbar-labels {
-    position: relative;
-}
-
-.colorbar-labels .minimum {
-    position: absolute;
-    left: 0px;
-    bottom: 0px;
-}
-
-.colorbar-labels .maximum {
-    position: absolute;
-    right: 0px;
-    bottom: 0px;
-}
-
-.colorbar-labels .unit {
-    position: absolute;
-    left: 115px;
-    bottom: 0px;
-}
-
-.control {
+.control-box {
     position: fixed;
-    left: 10px;
+    right: 1%;
     bottom: 20px;
-    z-index: 401 /* Minimum of 401 to ensure it lies above the map */
-  }
+    height: 400px;
+    width: 400px;
+    background-color: white;
+    z-index: 401; /* Minimum of 401 to ensure it lies above the map */
+    justify-content: right;
+}
