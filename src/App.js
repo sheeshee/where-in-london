@@ -17,7 +17,7 @@ class App extends Component {
       selectedBoroughName: "",
       selectedBoroughSize: 0,
       data: null,
-      areas: null
+      prices: null
     }
     console.log('App Constructed')
   }
@@ -27,8 +27,8 @@ class App extends Component {
     .then( response => response.json() )
     .then( data => {
       console.log('Loaded boroughs!');
-      var areas = data.features.map(f => parseFloat(f.properties.latest_average_price));
-      this.setState({data: data, areas: areas})
+      var prices = data.features.map(f => parseFloat(f.properties.latest_average_price));
+      this.setState({data: data, prices: prices})
     })
     .catch(error => console.error('Failed to load data:\n', error))
   }
@@ -47,7 +47,7 @@ class App extends Component {
 
  render(){
    if(this.state.data){
-    var gradient = new ColorGradient(this.state.areas)
+    var gradient = new ColorGradient(this.state.prices)
     var controlPanel =
       <ControlPanel
         boroughName={this.state.selectedBoroughName}

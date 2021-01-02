@@ -18,7 +18,7 @@ class Mapper extends Component {
     }
 
     style = feature => {
-        var color = this.props.gradient.colorFromValue(feature.properties.latest_average_price)
+        var color = this.getColor(feature.properties.latest_average_price)
         return {
             fillColor: color,
             weight: 2,
@@ -26,6 +26,15 @@ class Mapper extends Component {
             color: "black",
             dashArray: "10",
             fillOpacity: 0.8
+        }
+    }
+
+    getColor = value => {
+        try {
+            return this.props.gradient.colorFromValue(value)
+        } catch (error) {
+            console.error("Could not get a color value!\n", error)
+            return 0;
         }
     }
 
