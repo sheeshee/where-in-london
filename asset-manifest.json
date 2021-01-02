@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/where-in-london/static/css/main.9c9f2995.chunk.css",
-    "main.js": "/where-in-london/static/js/main.5b67a041.chunk.js",
-    "main.js.map": "/where-in-london/static/js/main.5b67a041.chunk.js.map",
+    "main.css": "/where-in-london/static/css/main.5d8799b8.chunk.css",
+    "main.js": "/where-in-london/static/js/main.d05ca487.chunk.js",
+    "main.js.map": "/where-in-london/static/js/main.d05ca487.chunk.js.map",
     "runtime-main.js": "/where-in-london/static/js/runtime-main.0d5ce870.js",
     "runtime-main.js.map": "/where-in-london/static/js/runtime-main.0d5ce870.js.map",
-    "static/js/2.127fa2c6.chunk.js": "/where-in-london/static/js/2.127fa2c6.chunk.js",
-    "static/js/2.127fa2c6.chunk.js.map": "/where-in-london/static/js/2.127fa2c6.chunk.js.map",
+    "static/js/2.d2f9b402.chunk.js": "/where-in-london/static/js/2.d2f9b402.chunk.js",
+    "static/js/2.d2f9b402.chunk.js.map": "/where-in-london/static/js/2.d2f9b402.chunk.js.map",
     "static/js/3.0e419c94.chunk.js": "/where-in-london/static/js/3.0e419c94.chunk.js",
     "static/js/3.0e419c94.chunk.js.map": "/where-in-london/static/js/3.0e419c94.chunk.js.map",
     "index.html": "/where-in-london/index.html",
-    "static/css/main.9c9f2995.chunk.css.map": "/where-in-london/static/css/main.9c9f2995.chunk.css.map",
-    "static/js/2.127fa2c6.chunk.js.LICENSE.txt": "/where-in-london/static/js/2.127fa2c6.chunk.js.LICENSE.txt"
+    "static/css/main.5d8799b8.chunk.css.map": "/where-in-london/static/css/main.5d8799b8.chunk.css.map",
+    "static/js/2.d2f9b402.chunk.js.LICENSE.txt": "/where-in-london/static/js/2.d2f9b402.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.0d5ce870.js",
-    "static/js/2.127fa2c6.chunk.js",
-    "static/css/main.9c9f2995.chunk.css",
-    "static/js/main.5b67a041.chunk.js"
+    "static/js/2.d2f9b402.chunk.js",
+    "static/css/main.5d8799b8.chunk.css",
+    "static/js/main.d05ca487.chunk.js"
   ]
 }
