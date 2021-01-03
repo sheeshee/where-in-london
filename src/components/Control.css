@@ -3,7 +3,7 @@
     position: fixed;
     right: 0;
     bottom: 0;
-    height: 250px;
+    height: 400px;
     width: 400px;
     background-color: white;
     z-index: 401; /* Minimum of 401 to ensure it lies above the map */

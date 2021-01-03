@@ -2,8 +2,8 @@ import './Control.css';
 import { Component } from 'react';
 import Plot from './Plot';
 
-function cleanKey(boroughName){
-    return boroughName.replace(' and ', ' & ')
+function cleanKey(hoveredBorough){
+    return hoveredBorough.replace(' and ', ' & ')
 }
 
 class ControlPanel extends Component {
@@ -27,9 +27,9 @@ class ControlPanel extends Component {
     render(){
         return(
             <div className="control-box">
-                <Plot data={this.state.data} boroughKey={cleanKey(this.props.boroughName)}/>
+                <Plot data={this.state.data} boroughKey={cleanKey(this.props.hoveredBorough)}/>
                 <div>
-                    {this.props.boroughName ? this.props.boroughName : "Hover over a borough to display its graph." }
+                    {this.props.hoveredBorough ? this.props.hoveredBorough : "Hover over a borough to display its graph." }
                 </div>
             </div>
         )

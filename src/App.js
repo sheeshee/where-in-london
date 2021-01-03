@@ -11,11 +11,10 @@ import ColorGradient from './components/ColorGradient'
 class App extends Component {
   constructor(props){
     super(props);
-    this.updateBoroughName = this.updateBoroughName.bind(this)
-    this.updateBoroughSize = this.updateBoroughSize.bind(this)
+    this.updateHoveredBorough = this.updateHoveredBorough.bind(this)
     this.state = {
-      selectedBoroughName: "",
-      selectedBoroughSize: 0,
+      hoveredBorough: "",
+      selectedBoroughs: [],
       data: null,
       prices: null
     }
@@ -33,15 +32,9 @@ class App extends Component {
     .catch(error => console.error('Failed to load data:\n', error))
   }
 
-  updateBoroughName = ( boroughName ) => {
+  updateHoveredBorough = ( hoveredBorough ) => {
     this.setState({
-      selectedBoroughName: boroughName
-    })
-  }
-
-  updateBoroughSize = ( boroughSize ) => {
-    this.setState({
-      selectedBoroughSize: boroughSize
+      hoveredBorough: hoveredBorough
     })
   }
 
@@ -50,8 +43,7 @@ class App extends Component {
     var gradient = new ColorGradient(this.state.prices)
     var controlPanel =
       <ControlPanel
-        boroughName={this.state.selectedBoroughName}
-        boroughSize={this.state.selectedBoroughSize}
+        hoveredBorough={this.state.hoveredBorough}
         gradient={gradient}
       />
 
@@ -62,8 +54,7 @@ class App extends Component {
       <Mapper
         gradient={gradient}
         data={this.state.data}
-        updateBoroughName={this.updateBoroughName}
-        updateBoroughSize={this.updateBoroughSize}
+        updateHoveredBorough={this.updateHoveredBorough}
       />
 
     </div>
