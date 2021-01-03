@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/where-in-london/static/css/main.4fc982b3.chunk.css",
-    "main.js": "/where-in-london/static/js/main.03f3c94b.chunk.js",
-    "main.js.map": "/where-in-london/static/js/main.03f3c94b.chunk.js.map",
+    "main.css": "/where-in-london/static/css/main.50cb5475.chunk.css",
+    "main.js": "/where-in-london/static/js/main.620c62aa.chunk.js",
+    "main.js.map": "/where-in-london/static/js/main.620c62aa.chunk.js.map",
     "runtime-main.js": "/where-in-london/static/js/runtime-main.5d45eb21.js",
     "runtime-main.js.map": "/where-in-london/static/js/runtime-main.5d45eb21.js.map",
     "static/js/2.1c460637.chunk.js": "/where-in-london/static/js/2.1c460637.chunk.js",
@@ -10,13 +10,13 @@
     "static/js/3.60c09bcc.chunk.js": "/where-in-london/static/js/3.60c09bcc.chunk.js",
     "static/js/3.60c09bcc.chunk.js.map": "/where-in-london/static/js/3.60c09bcc.chunk.js.map",
     "index.html": "/where-in-london/index.html",
-    "static/css/main.4fc982b3.chunk.css.map": "/where-in-london/static/css/main.4fc982b3.chunk.css.map",
+    "static/css/main.50cb5475.chunk.css.map": "/where-in-london/static/css/main.50cb5475.chunk.css.map",
     "static/js/2.1c460637.chunk.js.LICENSE.txt": "/where-in-london/static/js/2.1c460637.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.5d45eb21.js",
     "static/js/2.1c460637.chunk.js",
-    "static/css/main.4fc982b3.chunk.css",
-    "static/js/main.03f3c94b.chunk.js"
+    "static/css/main.50cb5475.chunk.css",
+    "static/js/main.620c62aa.chunk.js"
   ]
 }
