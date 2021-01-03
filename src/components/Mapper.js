@@ -41,7 +41,7 @@ class Mapper extends Component {
     onEachFeature = (feature, layer) => {
         layer.on({
           mouseover: this.highlightFeature.bind(this),
-          mouseout: this.resetHighlight.bind(this),
+          mouseout: this.resetHovered.bind(this),
           click: this.clickOnFeature.bind(this)
         });
     }
@@ -49,19 +49,23 @@ class Mapper extends Component {
     highlightFeature = (e) => {
         var layer = e.target;
         this.props.updateHoveredBorough(layer.feature.properties.name)
+        this.setHighlight(layer)
+    }
+
+    setHighlight = (layer) => {
         layer.setStyle({
             fillOpacity: 1
         })
     }
 
-    resetHighlight = (e) => {
+    resetHovered = (e) => {
         this.props.updateHoveredBorough("")
-        this.geojsonRef.current.leafletElement.resetStyle(e.target)
     }
 
     clickOnFeature = (e) => {
         var layer = e.target;
-        console.log("Clicked on " + layer.feature.properties.name)
+        this.props.updateSelectedBoroughs(layer.feature.properties.name);
+        this.setHighlight(layer) // added this line to keep layer from being un-highlighted on click
     }
 
     render(){

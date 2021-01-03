@@ -12,6 +12,7 @@ class App extends Component {
   constructor(props){
     super(props);
     this.updateHoveredBorough = this.updateHoveredBorough.bind(this)
+    this.updateSelectedBoroughs = this.updateSelectedBoroughs.bind(this)
     this.state = {
       hoveredBorough: "",
       selectedBoroughs: [],
@@ -38,12 +39,23 @@ class App extends Component {
     })
   }
 
+  updateSelectedBoroughs = ( clickedBorough ) => {
+    var boroughs = this.state.selectedBoroughs;
+    if( boroughs.includes(clickedBorough)){
+      boroughs = boroughs.filter(item => item !== clickedBorough)
+    } else {
+      boroughs.push(clickedBorough)
+    }
+    this.setState({ selectedBoroughs: boroughs })
+  }
+
  render(){
    if(this.state.data){
     var gradient = new ColorGradient(this.state.prices)
     var controlPanel =
       <ControlPanel
         hoveredBorough={this.state.hoveredBorough}
+        selectedBoroughs={this.state.selectedBoroughs}
         gradient={gradient}
       />
 
@@ -55,10 +67,12 @@ class App extends Component {
         gradient={gradient}
         data={this.state.data}
         updateHoveredBorough={this.updateHoveredBorough}
+        updateSelectedBoroughs={this.updateSelectedBoroughs}
       />
 
     </div>
    )
  }
 }
+
 export default App;

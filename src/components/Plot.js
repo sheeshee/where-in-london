@@ -7,15 +7,35 @@ function asPoundSterling(value){
     var label = [...groups.join(',')].reverse().join("")
     return '£' + label
 }
+
+
+function cleanKey(name){
+    return name.replace(' and ', ' & ')
+}
+
 class Plot extends Component {
 
+    getHoveredBorough(){
+        if(this.props.hoveredBorough){
+            return cleanKey(this.props.hoveredBorough)
+        } else {
+            return null
+        }
+    }
+
     render(){
+        var boroughLines = this.props.selectedBoroughs.map(
+            (borough, index) => {
+                return (<Line key={index} dataKey={cleanKey(borough)} dot={false}/>)
+            }
+        )
         return (
             <div className="plot">
             { this.props.data ?
                 <LineChart width={375} height={200} margin={{left: 40, right: 50, top: 25}}
                     data={this.props.data} >
-                    <Line dataKey={this.props.boroughKey} dot={false} />
+                    <Line key='hover' dataKey={this.getHoveredBorough()} dot={false} />
+                    {boroughLines}
                     <CartesianGrid />
                     <XAxis
                         dataKey="date"

@@ -2,9 +2,6 @@ import './Control.css';
 import { Component } from 'react';
 import Plot from './Plot';
 
-function cleanKey(hoveredBorough){
-    return hoveredBorough.replace(' and ', ' & ')
-}
 
 class ControlPanel extends Component {
     constructor(props){
@@ -25,11 +22,23 @@ class ControlPanel extends Component {
     }
 
     render(){
+        var selectedBoroughs = this.props.selectedBoroughs.map(
+            (borough, index) => {
+                return (<span key={index}>{borough}</span>)
+            }
+        )
         return(
             <div className="control-box">
-                <Plot data={this.state.data} boroughKey={cleanKey(this.props.hoveredBorough)}/>
-                <div>
-                    {this.props.hoveredBorough ? this.props.hoveredBorough : "Hover over a borough to display its graph." }
+                <Plot
+                    data={this.state.data}
+                    hoveredBorough={this.props.hoveredBorough}
+                    selectedBoroughs={this.props.selectedBoroughs}
+                />
+                <div className="selected-boroughs-list">
+                    <div className="hovered-borough">
+                        {this.props.hoveredBorough ? "Hovered: " + this.props.hoveredBorough : "Hover over a borough to display its graph." }
+                    </div>
+                    {selectedBoroughs}
                 </div>
             </div>
         )

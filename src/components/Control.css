@@ -8,3 +8,13 @@
     background-color: white;
     z-index: 401; /* Minimum of 401 to ensure it lies above the map */
 }
+
+.selected-boroughs-list {
+    margin-left: 5px;
+}
+
+.selected-boroughs-list span {
+    display: inline-block;
+    margin: 0 2px;
+
+}
