@@ -6,26 +6,31 @@ const bounds = latLngBounds(
     latLng(51.0, -1), latLng(52.0, 1)
 )
 
+const idleOpacity = 0;
+const hoverOpacity = 0.5;
+const activeOpacity = 0.8;
+
 class Mapper extends Component {
     constructor(props){
         super(props);
         this.geojsonRef = React.createRef();
         this.state = {
             lat: 51.505,
-            lng: -0.09,
+            lng: 0.2,
             zoom: 10,
           }
     }
 
     style = feature => {
-        var color = this.getColor(feature.properties.latest_average_price)
+        // var color = this.getColor(feature.properties.latest_average_price)
+        var color = this.props.boroughColours[feature.properties.name];
         return {
             fillColor: color,
             weight: 2,
             opacity: 0.5,
             color: "black",
-            dashArray: "10",
-            fillOpacity: 0.8
+            // dashArray: "10",
+            fillOpacity: this.props.selectedBoroughs.includes(feature.properties.name) ? activeOpacity : idleOpacity
         }
     }
 
@@ -54,7 +59,7 @@ class Mapper extends Component {
 
     setHighlight = (layer) => {
         layer.setStyle({
-            fillOpacity: 1
+            fillOpacity: this.props.selectedBoroughs.includes(layer.feature.properties.name) ? activeOpacity : hoverOpacity
         })
     }
 
@@ -74,7 +79,7 @@ class Mapper extends Component {
             <Map
                 center={position}
                 zoom={this.state.zoom}
-                minZoom={10}
+                minZoom={9}
                 maxBounds={bounds}
             >
             <TileLayer

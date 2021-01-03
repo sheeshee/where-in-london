@@ -5,6 +5,8 @@ import ControlPanel from './components/ControlPanel'
 import Mapper from './components/Mapper'
 import ColorGradient from './components/ColorGradient'
 
+import boroughColours from './components/borough-hex.json'
+
 // downloaded data from here:
 // https://skgrange.github.io/data.html
 
@@ -13,6 +15,7 @@ class App extends Component {
     super(props);
     this.updateHoveredBorough = this.updateHoveredBorough.bind(this)
     this.updateSelectedBoroughs = this.updateSelectedBoroughs.bind(this)
+    this.clearBoroughList = this.clearBoroughList.bind(this)
     this.state = {
       hoveredBorough: "",
       selectedBoroughs: [],
@@ -42,11 +45,16 @@ class App extends Component {
   updateSelectedBoroughs = ( clickedBorough ) => {
     var boroughs = this.state.selectedBoroughs;
     if( boroughs.includes(clickedBorough)){
+      // remove the borough from the list of selected ones
       boroughs = boroughs.filter(item => item !== clickedBorough)
     } else {
       boroughs.push(clickedBorough)
     }
     this.setState({ selectedBoroughs: boroughs })
+  }
+
+  clearBoroughList = () => {
+    this.setState({ selectedBoroughs: []})
   }
 
  render(){
@@ -57,6 +65,8 @@ class App extends Component {
         hoveredBorough={this.state.hoveredBorough}
         selectedBoroughs={this.state.selectedBoroughs}
         gradient={gradient}
+        boroughColours={boroughColours}
+        clearBoroughList={this.clearBoroughList}
       />
 
    }
@@ -68,6 +78,8 @@ class App extends Component {
         data={this.state.data}
         updateHoveredBorough={this.updateHoveredBorough}
         updateSelectedBoroughs={this.updateSelectedBoroughs}
+        selectedBoroughs={this.state.selectedBoroughs}
+        boroughColours={boroughColours}
       />
 
     </div>

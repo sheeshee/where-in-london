@@ -26,21 +26,37 @@ class Plot extends Component {
     render(){
         var boroughLines = this.props.selectedBoroughs.map(
             (borough, index) => {
-                return (<Line key={index} dataKey={cleanKey(borough)} dot={false}/>)
+                return (
+                    <Line
+                        key={index}
+                        dataKey={cleanKey(borough)}
+                        dot={false}
+                        stroke={this.props.boroughColours[cleanKey(borough)]}
+                        isAnimationActive={false}
+                    />
+                )
             }
         )
+        var hoverLine;
+        if(!this.props.selectedBoroughs.includes(this.getHoveredBorough)){
+            hoverLine = <Line
+                key='hover'
+                dataKey={this.getHoveredBorough()}
+                dot={false}
+                stroke={'lightgrey'}
+                isAnimationActive={false}
+            />
+        }
         return (
             <div className="plot">
             { this.props.data ?
                 <LineChart width={375} height={200} margin={{left: 40, right: 50, top: 25}}
                     data={this.props.data} >
-                    <Line key='hover' dataKey={this.getHoveredBorough()} dot={false} />
+                    {hoverLine}
                     {boroughLines}
                     <CartesianGrid />
                     <XAxis
                         dataKey="date"
-                        // interval="preserveStartEnd"
-                        // tickCount={12}
                     />
                     <YAxis
                         type="number"

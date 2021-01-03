@@ -1,20 +1,81 @@
 
 .control-box {
     position: fixed;
-    right: 0;
-    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    right: 5px;
+    top: 5px;
     height: 400px;
     width: 400px;
     background-color: white;
     z-index: 401; /* Minimum of 401 to ensure it lies above the map */
+    padding: 5px;
+    border-radius: 5px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 20px;
+    margin: 0 auto;
+}
+
+.subtitle-container {
+    display: flex;
+    justify-content: center;
+}
+
+.subtitle-container a {
+    display: inline-block;
+    font-size: 15px;
+    border: 2px solid black;
+    margin: 5px 10px 0 10px;
+    padding: 3px;
+    border-radius: 3px;
+    color: black;
+}
+
+.subtitle-container a:hover {
+    background-color: rgb(196, 235, 248);
+    text-decoration: none;
 }
 
 .selected-boroughs-list {
     margin-left: 5px;
+    overflow-y: auto;
+    height: 150px;
 }
 
 .selected-boroughs-list span {
     display: inline-block;
     margin: 0 2px;
+    border-radius: 5px;
+    font-size: 12px;
+    padding: 2px 5px;
+    color: white;
+}
 
+.clear-borough-prompt {
+    cursor: pointer;
+}
+
+.interaction-prompt {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid grey;
+    border-radius: 3px;
+    color: grey;
+    margin-top: 3px;
+}
+
+.interaction-prompt span {
+    display: inline;
+    color: white;
+    padding: 2px 5px;
+    border-radius: 3px;
+}
+
+.interaction-prompt span.borough-add {
+    background-color: grey;
 }
