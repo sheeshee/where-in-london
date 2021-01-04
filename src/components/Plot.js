@@ -1,5 +1,5 @@
 import './Plot.css';
-import { CartesianGrid, Line, LineChart, XAxis, YAxis } from 'recharts';
+import { CartesianGrid, Line, LineChart, ResponsiveContainer, XAxis, YAxis } from 'recharts';
 import { Component } from 'react';
 
 function asPoundSterling(value){
@@ -50,19 +50,21 @@ class Plot extends Component {
         return (
             <div className="plot">
             { this.props.data ?
-                <LineChart width={400} height={200} //margin={{left: 40, right: 50, top: 25}}
-                    data={this.props.data} >
-                    {hoverLine}
-                    {boroughLines}
-                    <CartesianGrid />
-                    <XAxis
-                        dataKey="date"
-                    />
-                    <YAxis
-                        type="number"
-                        tickFormatter={asPoundSterling}
-                    />
-                </LineChart>
+                <ResponsiveContainer width="99%" height="99%">
+                    <LineChart //margin={{left: 40, right: 50, top: 25}}
+                        data={this.props.data} >
+                        {hoverLine}
+                        {boroughLines}
+                        <CartesianGrid />
+                        <XAxis
+                            dataKey="date"
+                        />
+                        <YAxis
+                            type="number"
+                            tickFormatter={asPoundSterling}
+                        />
+                    </LineChart>
+                </ResponsiveContainer>
             :
                 <div>Loading...</div>
             }
