@@ -3,15 +3,24 @@
     position: fixed;
     display: flex;
     flex-direction: column;
-    align-content: center;
+    align-items: center;
     right: 5px;
     top: 5px;
     height: 400px;
-    width: 400px;
+    width: 450px;
     background-color: white;
     z-index: 401; /* Minimum of 401 to ensure it lies above the map */
     padding: 5px;
     border-radius: 5px;
+}
+
+@media screen and (max-width: 500px){
+    .control-box {
+        position: relative;
+        height: 50vh;
+        width: 100vw;
+        margin: 0;
+    }
 }
 
 h1 {
@@ -60,9 +69,8 @@ h1 {
 }
 
 .interaction-prompt {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 95%;
+    text-align: center;
     border: 2px solid grey;
     border-radius: 3px;
     color: grey;
@@ -78,4 +86,22 @@ h1 {
 
 .interaction-prompt span.borough-add {
     background-color: grey;
+}
+
+.selected-boroughs-list .mobile-clear {
+    display: none;
+
+
+}
+
+@media not all and (hover: hover){
+    .interaction-prompt {
+        display: none;
+    }
+
+    .selected-boroughs-list .mobile-clear {
+        display: inline-block;
+        border: 2px solid grey;
+        color: grey;
+    }
 }

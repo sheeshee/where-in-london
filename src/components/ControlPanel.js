@@ -41,6 +41,7 @@ class PlottedBoroughList extends Component {
         )
         return (
             <div className="selected-boroughs-list">
+                <span className="mobile-clear" onClick={this.props.clearBoroughList}>Clear All</span>
                 {selectedBoroughs}
             </div>
         )
@@ -82,6 +83,7 @@ class ControlPanel extends Component {
                 <PlottedBoroughList
                         selectedBoroughs={this.props.selectedBoroughs}
                         boroughColours={this.props.boroughColours}
+                        clearBoroughList={this.props.clearBoroughList}
                     />
                 <InteractionPrompt
                     selectedBoroughs={this.props.selectedBoroughs}

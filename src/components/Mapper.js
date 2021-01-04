@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import { Map, TileLayer, GeoJSON } from 'react-leaflet'
 
 const bounds = latLngBounds(
-    latLng(51.0, -1), latLng(52.0, 1)
+    latLng(50.0, -3), latLng(53.0, 3)
 )
 
 const idleOpacity = 0;
@@ -16,8 +16,8 @@ class Mapper extends Component {
         this.geojsonRef = React.createRef();
         this.state = {
             lat: 51.505,
-            lng: 0.2,
-            zoom: 10,
+            lng: -0.1278,
+            zoom: 9,
           }
     }
 

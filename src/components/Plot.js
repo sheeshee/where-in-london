@@ -50,7 +50,7 @@ class Plot extends Component {
         return (
             <div className="plot">
             { this.props.data ?
-                <LineChart width={375} height={200} margin={{left: 40, right: 50, top: 25}}
+                <LineChart width={400} height={200} //margin={{left: 40, right: 50, top: 25}}
                     data={this.props.data} >
                     {hoverLine}
                     {boroughLines}
