@@ -22,7 +22,6 @@ class Mapper extends Component {
     }
 
     style = feature => {
-        // var color = this.getColor(feature.properties.latest_average_price)
         var color = this.props.boroughColours[feature.properties.name];
         return {
             fillColor: color,
@@ -31,15 +30,6 @@ class Mapper extends Component {
             color: "black",
             // dashArray: "10",
             fillOpacity: this.props.selectedBoroughs.includes(feature.properties.name) ? activeOpacity : idleOpacity
-        }
-    }
-
-    getColor = value => {
-        try {
-            return this.props.gradient.colorFromValue(value)
-        } catch (error) {
-            console.error("Could not get a color value!\n", error)
-            return 0;
         }
     }
 
